@@ -2,8 +2,6 @@
 from = "/*"
 to = "index.html"
 status = 200
-[build]
-	command = "npm install --legacy-peer-deps && npm run build"
 [[plugins]]
 	package = "@netlify/plugin-node"
 	[plugins.inputs]
