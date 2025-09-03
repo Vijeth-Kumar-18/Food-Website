@@ -9,6 +9,34 @@
     top: 0;
     z-index: 1000;
   }
+
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: 20px;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-hamburger .bar {
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+.navbar-hamburger .bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.navbar-hamburger .bar.open:nth-child(2) {
+  opacity: 0;
+}
+.navbar-hamburger .bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
   
   .navbar-logo img {
     height: 50px;
@@ -20,23 +48,9 @@
     gap: 20px;
     padding: 0;
     margin: 0;
+    transition: max-height 0.3s ease;
   }
-  
-  .navbar-menu li {
-    display: inline;
 
-    border: 2px solid #fff; 
-
-    border-radius: 5px;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease, border 0.3s ease;
-  }
-  
-  .navbar-menu li:hover {
-    background-color: #fff;
-    border: 2px solid #ff0000;
-  }
-  
   .navbar-menu a {
     text-decoration: none;
     color: #fff;
@@ -51,6 +65,15 @@
   .navbar-search {
     display: flex;
     align-items: center;
+  }
+
+  @media (max-width: 1024px) {
+    .navbar-menu {
+      gap: 10px;
+    }
+    .navbar-search input {
+      width: 120px;
+    }
   }
   
   .navbar-search input {
@@ -79,6 +102,36 @@
     .navbar-menu {
       flex-direction: column;
       align-items: center;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100vw;
+      background: #ff0000;
+      max-height: 0;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+    .navbar-menu.open {
+    max-height: 1000px;
+    padding: 20px 0 20px 0;
+    overflow: visible;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .navbar-hamburger {
+      display: flex;
+    }
+    .navbar-search {
+      margin-top: 10px;
+      width: 100%;
+      justify-content: center;
+    }
+    .navbar-logo {
+      z-index: 1001;
+    }
+    .navbar {
+      flex-direction: row;
+      position: relative;
     }
   
     .navbar-search {
