@@ -2,7 +2,3 @@
 from = "/*"
 to = "index.html"
 status = 200
-[[plugins]]
-	package = "@netlify/plugin-node"
-	[plugins.inputs]
-		install_command = "npm install --legacy-peer-deps"
